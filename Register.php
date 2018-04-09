@@ -1,7 +1,7 @@
 <?php
     require("password.php");
 
-    $connect = mysqli_connect("sql11.freemysqlhosting.net", "sql11231550", "hZDXBUDKXP", "sql11231550");
+    $connect = mysqli_connect("den1.mysql5.gear.host", "userinformation1", "Ox750!N-4Omp", "userinformation1");
     
     $username = $_POST["username"];
     $password = $_POST["password"];
