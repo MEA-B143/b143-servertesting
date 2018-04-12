@@ -20,7 +20,7 @@
 	$password = $_POST['password'];
 
 
-	$sql = "SELECT * FROM signup WHERE email='$username' AND password='$password'";
+	$sql = "SELECT * FROM userinformation WHERE email='$username' AND password='$password'";
 
 	
 	$result = mysqli_query($con,$sql);

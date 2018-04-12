@@ -27,7 +27,7 @@
 		}
 		else{
 
-		$sql = "SELECT * FROM signup WHERE username='$username' OR email='$email'";
+		$sql = "SELECT * FROM userinformation WHERE username='$username' OR email='$email'";
 
 	        $check = mysqli_fetch_array(mysqli_query($con,$sql));
 
@@ -36,7 +36,7 @@
 		echo 'username or email already exist';
 
 		}else{
-		$sql = "INSERT INTO signup (username,password,email) VALUES('$username','$password','$email')";
+		$sql = "INSERT INTO userinformation (username,password,email) VALUES('$username','$password','$email')";
 
 		if(mysqli_query($con,$sql)){
 
