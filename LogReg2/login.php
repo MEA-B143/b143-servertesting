@@ -19,6 +19,7 @@
 		$result2 = mysqli_query($con, $sql2);
 		while($row = mysqli_fetch_assoc($result2)) {
 			$retval = $row["id"];
+			echo "3";
 		}
 		if(isset($check))
 		{
