@@ -28,7 +28,7 @@
 	}
 		else{
 				
-			echo "oops! Please try again!" . "password=" . $password . "username=" . $username . "email=" . email;
+			echo mysqli_query($con,$sql) . "oops! Please try again!" . "password=" . $password . "username=" . $username . "email=" . email;
 		
 		}
 }
