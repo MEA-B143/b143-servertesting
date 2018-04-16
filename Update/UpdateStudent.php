@@ -1,6 +1,10 @@
 <?php
 include 'DatabaseConfig.php';
-$con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
+define('HOST','den1.mysql5.gear.host');
+define('USER','userinformation1');
+define('PASS','Ox750!N-4Omp');
+define('DB','userinformation1');
+$con = mysqli_connect(HOST,USER,PASS,DB);
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	$id = $_POST['StudentID'];
 	$change = $_POST['scoreChange'];
@@ -19,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		echo $newscore;
 	}
 	else {
-		echo mysql_error();
+		echo mysqli_error($con);
 	}
 }
 mysqli_close($con);
