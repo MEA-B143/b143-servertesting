@@ -11,9 +11,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	while ($row = $query->fetch_row()) {
 		$currentScore = (int)$row[0];
 	}
-
 	$newscore = $currentScore+$change;
 	$newscoreString = strval($newscore);
+	echo $newscoreString;
 	$Sql_Query = "UPDATE userinformation SET score=$newscoreString WHERE id = $id";
 
 	if(mysqli_query($con,$Sql_Query)) {
