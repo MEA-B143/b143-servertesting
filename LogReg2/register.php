@@ -52,4 +52,5 @@
 			
 	        mysqli_close($con);
 
-		}			
+		}
+?>		

@@ -26,15 +26,17 @@
 	$result = mysqli_query($con,$sql);
 
 	$check = mysqli_fetch_array($result);
+	
+	
+	$sql = "SELECT id FROM userinformation";
+	$result = mysqli_query($conn, $sql);
 
+	while($row = mysqli_fetch_assoc($result)) {
+        $retval = $row["id"];
+    }
 	
 	if(isset($check))
 	{
-		while ($row = mysql_fetch_array($result)) 
-		{
-			$id = $row['user_id'];
-			$retval = "success" + "," + $id;
-		}
 		echo $retval;
 
 	}
@@ -45,3 +47,4 @@
 	}
 		mysqli_close($con);
 	}
+?>
