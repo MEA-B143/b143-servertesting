@@ -15,7 +15,7 @@ include 'DatabaseConfig.php';
 	 $onlinescore = $row['score'];  
  }
  $newscore = $onlinescore+$change;
- $Sql_Query = "UPDATE userinformation SET score=$newscore WHERE id = $id";
+ $Sql_Query = "UPDATE userinformation SET score=score+$change WHERE id = $id";
 
  if(mysqli_query($con,$Sql_Query))
 {
@@ -23,7 +23,7 @@ include 'DatabaseConfig.php';
 }
 else
 {
- echo 'Something went wrong';
+ echo $newscore;
  }
  }
  mysqli_close($con);
