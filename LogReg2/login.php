@@ -15,13 +15,13 @@
 		$sql = "SELECT * FROM userinformation WHERE email='$username' AND password='$password'";
 		$result = mysqli_query($con,$sql);
 		$check = mysqli_fetch_array($result);
-		//$sql2 = "SELECT id FROM userinformation WHERE email='$username' AND password='$password'";
-		/*
+		$sql2 = "SELECT id FROM userinformation WHERE email='$username' AND password='$password'";
+		echo $sql2;
 		while($row = mysqli_fetch_array($result)) {
 			$retval = $row["id"];
 			//echo "3";
 		}
-		*/
+		
 		if(isset($check)) {
 			echo "xd";
 		} else {
