@@ -27,8 +27,8 @@
 	
 	}
 		else{
-				
-			echo mysqli_query($con,$sql) . "oops! Please try again!" . "password=" . $password . "username=" . $username . "email=" . email;
+				echo "Error description: " . mysqli_error($con);
+				//echo mysqli_query($con,$sql) . "oops! Please try again!" . "password=" . $password . "username=" . $username . "email=" . email;
 		
 		}
 }
