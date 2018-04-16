@@ -18,11 +18,11 @@
 		$sql2 = "SELECT user_id FROM userinformation WHERE email='$username' AND password='$password'";
 		$query = mysqli_query($con, $sql2);
 		while ($row = $query->fetch_row()) {
-			echo $row[0];
+			$id = $row[0];
 		}
 		
 		if(isset($check)) {
-			echo "xd";
+			echo "success,$id";
 		} else {
 			echo "failure";
 		}
