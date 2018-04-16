@@ -12,10 +12,10 @@
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$username = $_POST['email'];	
 		$password = $_POST['password'];
-		echo $username . $password;
 		$sql = "SELECT * FROM userinformation WHERE email='$username' AND password='$password'";
 		$result = mysqli_query($con,$sql);
 		$check = mysqli_fetch_array($result);
+		echo isset($check);
 		$sql = "SELECT id FROM userinformation";
 		$result = mysqli_query($conn, $sql);
 		while($row = mysqli_fetch_assoc($result)) {
