@@ -1,8 +1,7 @@
 <?php
+include 'DatabaseConfig.php';
+$con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
 if($_SERVER['REQUEST_METHOD']=='POST'){
-
-	include 'DatabaseConfig.php';
-	$con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
 	$id = $_POST['StudentID'];
 	$change = $_POST['scoreChange'];
 	$change = (int)$change;
