@@ -5,9 +5,11 @@ define('USER','userinformation1');
 define('PASS','Ox750!N-4Omp');
 define('DB','userinformation1');
 $con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to Connect');
+echo "Connected";
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	$id = $_POST['StudentID'];
 	$change = $_POST['scoreChange'];
+	echo $id . $change;
 	$change = (int)$change;
 	$sql2 = "SELECT score FROM userinformation WHERE id = $id";
 	$query = mysqli_query($con, $sql2);
