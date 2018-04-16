@@ -15,7 +15,7 @@
 		$sql = "SELECT * FROM userinformation WHERE email='$username' AND password='$password'";
 		$result = mysqli_query($con,$sql);
 		$check = mysqli_fetch_array($result);
-		$sql2 = "SELECT id FROM userinformation WHERE email='$username' AND password='$password'";
+		$sql2 = "SELECT user_id FROM userinformation WHERE email='$username' AND password='$password'";
 		
 		while ($row = $result->fetch_row()) {
 			echo $row[0];
