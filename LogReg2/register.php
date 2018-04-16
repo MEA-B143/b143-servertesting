@@ -21,14 +21,14 @@
 		if(isset($check)){
 		echo 'username or email already exist';
 		}else{
-		$sql = "INSERT INTO userinformation (username,password,email) VALUES('$username','$password','$email')";
+		$sql = "INSERT INTO userinformation (username,password,email) VALUES ('$username','$password','$email')";
 		if(mysqli_query($con,$sql)){
 			echo 'successfully registered';
 	
 	}
 		else{
 				
-			echo 'oops! Please try again!';
+			echo "oops! Please try again!" . "password=" . $password . "username=" . $username . "email=" . email;
 		
 		}
 }
