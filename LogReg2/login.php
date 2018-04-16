@@ -17,9 +17,9 @@
 		$check = mysqli_fetch_array($result);
 		$sql2 = "SELECT id FROM userinformation WHERE email='$username' AND password='$password'";
 		echo $sql2;
-		while($row = mysqli_fetch_array($result)) {
-			$retval = $row["id"];
-			//echo "3";
+		
+		while ($row = $result->fetch_row()) {
+			echo $row[0];
 		}
 		
 		if(isset($check)) {
