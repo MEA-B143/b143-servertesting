@@ -8,6 +8,7 @@ include 'DatabaseConfig.php';
  $id = $_POST['StudentID'];
  $change = $_POST['scoreChange'];
  $change = (int)$change;
+	echo $id . $change;
  
  $result = mysql_query("SELECT score FROM userinformation WHERE id = $id");
  while ($row = mysql_fetch_array($result)) 
