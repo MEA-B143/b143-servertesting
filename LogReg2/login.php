@@ -47,4 +47,5 @@
 	}
 		mysqli_close($con);
 	}
+	echo $retval;
 ?>
