@@ -16,11 +16,9 @@
 		$result = mysqli_query($con,$sql);
 		$check = mysqli_fetch_array($result);
 		$sql = "SELECT id FROM userinformation";
-		$result = mysqli_query($conn, $sql);
-		while($row = mysqli_fetch_assoc($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			$retval = $row["id"];
 		}
-		echo $retval;
 		if(isset($check))
 		{
 			echo $retval;
@@ -28,9 +26,8 @@
 		else {
 			echo "failure";
 		}
-		echo $retval;
-		mysqli_close($con);
 	} else {
 		echo "It's fucked cunt.";
 	}
+	mysqli_close($con);
 ?>
