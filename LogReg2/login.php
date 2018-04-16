@@ -30,16 +30,18 @@
 	
 	if(isset($check))
 	{
-
-	echo "success";
+		while ($row = mysql_fetch_array($result)) 
+		{
+			$id = $row['user_id'];
+			$retval = "success" + "," + $id;
+			echo $retval;
+		}
 
 	}
 	else{
 
-	echo "failure";
+		echo "failure";
 
 	}
-
 		mysqli_close($con);
-
 	}
