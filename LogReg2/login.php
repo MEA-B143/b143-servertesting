@@ -34,8 +34,8 @@
 		{
 			$id = $row['user_id'];
 			$retval = "success" + "," + $id;
-			echo $retval;
 		}
+		echo $retval;
 
 	}
 	else{
