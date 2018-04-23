@@ -1,6 +1,6 @@
 <?php
-	$objConnect = mysql_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp");
-	$objDB = mysql_select_db("userinformation1");
+	$objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp");
+	$objDB = mysqli_select_db("userinformation1");
 	
 	/*** for Sample 
 		$_POST["sMemberID"] = "2";
@@ -33,11 +33,13 @@
 		WHERE id = '".$strMemberID."'
 	";
 
-	$objQuery = mysql_query($strSQL);
+	$objQuery = mysqli_query($strSQL);
 	if(!$objQuery)
 	{
 		$arr['StatusID'] = "0"; 
-		$arr['Error'] = "Cannot save data!";	
+		$arr['Error'] = mysqli_error(objConnect);	
+		$arr['id'] = $id;
+		$arr['score'] = $score;
 	}
 	else
 	{
@@ -50,7 +52,7 @@
 		$arr['Error'] // Error Message
 	*/
 	
-	mysql_close($objConnect);
+	mysqli_close($objConnect);
 	
 	echo json_encode($arr);
 
