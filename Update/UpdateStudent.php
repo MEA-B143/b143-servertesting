@@ -7,7 +7,7 @@
 	$strScore = $_POST["score"];
 	
 	/*** Update ***/
-	$strSQL = "UPDATE userinformation SET score=$strScore WHERE id=$strMemberID";
+	$strSQL = "UPDATE userinformation SET score=$strScore WHERE user_id=$strMemberID";
 
 	$objQuery = mysqli_query($strSQL);
 	if(!$objQuery)
