@@ -22,7 +22,7 @@
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
-		$sql = "SELECT user_id FROM userinformation";
+		$sql = "SELECT user_id FROM userinformation WHERE user_id='$strMemberID'";
 		$result = $objConnect->query($sql);
 
 		if ($result->num_rows > 0) {
