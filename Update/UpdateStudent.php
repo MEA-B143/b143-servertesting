@@ -10,8 +10,9 @@
 		$_POST["sTel"] = "021978032";
 	*/
 
-	$strMemberID = $_POST["id"];
-	$strScore = $_POST["score"];
+	$strMemberID = urldecode($_POST["id"]);
+	$strScore = urldecode($_POST["score"]);
+	
 
 	/*** Check Email Exists ***/
 	/*
