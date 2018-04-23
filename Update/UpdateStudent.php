@@ -30,7 +30,7 @@
 	/*** Update ***/
 	$strSQL = " UPDATE userinformation SET
 		score = '".$strScore."'
-		WHERE MemberID = '".$strMemberID."'
+		WHERE id = '".$strMemberID."'
 	";
 
 	$objQuery = mysql_query($strSQL);
