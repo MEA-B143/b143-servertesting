@@ -3,8 +3,7 @@
 	//$objDB = mysqli_select_db("userinformation1");
 	
 	$strMemberID = $_POST["id"];
-	$strScore = $_POST["field"];
-	$intScore = (int)$strScore;
+	$field = $_POST["field"];
 	
 		$sql = "SELECT '$field' FROM userinformation WHERE user_id='$strMemberID'";
 		$result = $objConnect->query($sql);
