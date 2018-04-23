@@ -2,31 +2,9 @@
 	$objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp");
 	$objDB = mysqli_select_db("userinformation1");
 	
-	/*** for Sample 
-		$_POST["sMemberID"] = "2";
-		$_POST["sPassword"] = "adisorn@2";
-		$_POST["sName"] = "Adisorn Bunsong";
-		$_POST["sEmail"] = "adisorn@thaicreate.com";
-		$_POST["sTel"] = "021978032";
-	*/
 
-	$strMemberID = urldecode($_POST["id"]);
-	$strScore = urldecode($_POST["score"]);
-	
-
-	/*** Check Email Exists ***/
-	/*
-	$strSQL = "SELECT * FROM userinformation WHERE Email = '".$strEmail."' AND MemberID != '".$strMemberID."' ";
-	$objQuery = mysql_query($strSQL);
-	$objResult = mysql_fetch_array($objQuery);
-	if($objResult)
-	{
-		$arr['StatusID'] = "0"; 
-		$arr['Error'] = "Email Exists!";	
-		echo json_encode($arr);
-		exit();
-	}
-	*/
+	$strMemberID = $_POST["id"];
+	$strScore = $_POST["score"];
 	
 	/*** Update ***/
 	$strSQL = " UPDATE userinformation SET
@@ -39,8 +17,8 @@
 	{
 		$arr['StatusID'] = "0"; 
 		$arr['Error'] = mysqli_error(objConnect);	
-		$arr['id'] = $id;
-		$arr['score'] = $score;
+		$arr['id'] = $strMemberID;
+		$arr['score'] = $strScore;
 	}
 	else
 	{
@@ -56,6 +34,7 @@
 	mysqli_close($objConnect);
 	
 	echo json_encode($arr);
+
 
 
 
