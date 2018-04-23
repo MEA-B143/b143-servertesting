@@ -17,7 +17,7 @@
 			echo "0 results";
 		}
 			
-		$arr['returnValue'] = $fieldValue;
+		$arr['$field'] = $fieldValue;
 	
 	mysqli_close($objConnect);
 	
