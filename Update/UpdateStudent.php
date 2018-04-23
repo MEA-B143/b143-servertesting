@@ -22,10 +22,16 @@
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
-		$sql2 = "SELECT score FROM userinformation WHERE user_id = $strMemberID";
-		$query = mysqli_query($con, $sql2);
-		while ($row = $query->fetch_row()) {
-			$currentScore = (int)$row[0];
+		$sql = "SELECT user_id FROM userinformation";
+		$result = $objConnect->query($sql);
+
+		if ($result->num_rows > 0) {
+			// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo "id: " . $row["id"]. " - Name: " . $row["score"];
+			}
+		} else {
+			echo "0 results";
 		}
 			
 		$arr['newScore'] = $row["currentscore"];
@@ -38,7 +44,7 @@
 	
 	mysqli_close($objConnect);
 	
-	echo json_encode($arr);
+	//echo json_encode($arr);
 
 
 
