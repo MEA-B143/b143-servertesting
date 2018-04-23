@@ -9,7 +9,7 @@
 	/*** Update ***/
 	$strSQL = "UPDATE userinformation SET score='$strScore' WHERE user_id='$strMemberID'";
 
-	$objQuery = mysqli_query($strSQL);
+	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery)
 	{
 		$arr['StatusID'] = "0"; 
