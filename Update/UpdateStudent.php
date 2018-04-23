@@ -1,4 +1,62 @@
 <?php
+	$objConnect = mysql_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp");
+	$objDB = mysql_select_db("userinformation1");
+	
+	/*** for Sample 
+		$_POST["sMemberID"] = "2";
+		$_POST["sPassword"] = "adisorn@2";
+		$_POST["sName"] = "Adisorn Bunsong";
+		$_POST["sEmail"] = "adisorn@thaicreate.com";
+		$_POST["sTel"] = "021978032";
+	*/
+
+	$strMemberID = $_POST["id"];
+	$strScore = $_POST["score"];
+
+	/*** Check Email Exists ***/
+	/*
+	$strSQL = "SELECT * FROM userinformation WHERE Email = '".$strEmail."' AND MemberID != '".$strMemberID."' ";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+	if($objResult)
+	{
+		$arr['StatusID'] = "0"; 
+		$arr['Error'] = "Email Exists!";	
+		echo json_encode($arr);
+		exit();
+	}
+	*/
+	
+	/*** Update ***/
+	$strSQL = " UPDATE userinformation SET
+		score = '".$strScore."'
+		WHERE MemberID = '".$strMemberID."'
+	";
+
+	$objQuery = mysql_query($strSQL);
+	if(!$objQuery)
+	{
+		$arr['StatusID'] = "0"; 
+		$arr['Error'] = "Cannot save data!";	
+	}
+	else
+	{
+		$arr['StatusID'] = "1"; 
+		$arr['Error'] = "";	
+	}
+
+	/**
+		$arr['StatusID'] // (0=Failed , 1=Complete)
+		$arr['Error'] // Error Message
+	*/
+	
+	mysql_close($objConnect);
+	
+	echo json_encode($arr);
+
+
+
+/*
 include 'DatabaseConfig.php';
 define('HOST','den1.mysql5.gear.host');
 define('USER','userinformation1');
@@ -29,4 +87,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	}
 }
 mysqli_close($con);
+*/
 ?>
