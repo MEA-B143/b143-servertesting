@@ -13,7 +13,7 @@
 	if(!$objQuery)
 	{
 		$arr['StatusID'] = "0"; 
-		$arr['Error'] = mysqli_error(objConnect);	
+		$arr['Error'] = mysqli_error($objConnect);	
 		$arr['id'] = $strMemberID;
 		$arr['score'] = $strScore;
 	}
