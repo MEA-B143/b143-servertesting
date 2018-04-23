@@ -22,13 +22,13 @@
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
-		$sql = "SELECT user_id FROM userinformation WHERE user_id='$strMemberID'";
+		$sql = "SELECT score FROM userinformation WHERE user_id='$strMemberID'";
 		$result = $objConnect->query($sql);
 
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
-				echo "id: " . $row["id"]. " - Name: " . $row["score"];
+				echo "id: " . $row["user_id"]. " - Score: " . $row["score"];
 			}
 		} else {
 			echo "0 results";
