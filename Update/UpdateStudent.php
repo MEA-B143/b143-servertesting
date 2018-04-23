@@ -28,13 +28,13 @@
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
-				echo "id: " . $row["user_id"]. " - Score: " . $row["score"];
+				$currentScore = $row["score"];
 			}
 		} else {
 			echo "0 results";
 		}
 			
-		$arr['newScore'] = $row["currentscore"];
+		$arr['newScore'] = $currentScore;
 	}
 
 	/**
@@ -44,7 +44,7 @@
 	
 	mysqli_close($objConnect);
 	
-	//echo json_encode($arr);
+	echo json_encode($arr);
 
 
 
