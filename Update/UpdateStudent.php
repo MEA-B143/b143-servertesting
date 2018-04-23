@@ -22,7 +22,7 @@
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
-		$sql2 = "SELECT score FROM userinformation WHERE id = $strMemberID";
+		$sql2 = "SELECT score FROM userinformation WHERE user_id = $strMemberID";
 		$query = mysqli_query($con, $sql2);
 		while ($row = $query->fetch_row()) {
 			$currentScore = (int)$row[0];
