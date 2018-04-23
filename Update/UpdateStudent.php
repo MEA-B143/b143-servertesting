@@ -13,20 +13,21 @@
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery)
 	{
-		$getScore = mysql_query("SELECT score FROM userinformation WHERE id ='$strMemberID'");
-		while ($row = mysql_fetch_array($getScore)) 
-		{
-			$text = $row['score'];  
-		}
 		$arr['StatusID'] = "0"; 
 		$arr['Error'] = mysqli_error($objConnect);	
 		$arr['id'] = $strMemberID;
-		$arr['score'] = $text;
+		$arr['score'] = $strScore;
 	}
 	else
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
+		$getScore = mysql_query("SELECT score FROM userinformation WHERE id ='$strMemberID'");
+		while ($row = mysql_fetch_array($getScore)) 
+		{
+			$newScore = $row['score'];  
+		}
+		$arr['newScore'] = $newScore;
 	}
 
 	/**
