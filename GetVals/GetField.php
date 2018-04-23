@@ -5,7 +5,7 @@
 	$strMemberID = $_POST["id"];
 	$field = $_POST["field"];
 	
-		$sql = "SELECT $field FROM userinformation WHERE user_id='$strMemberID'";
+		$sql = "SELECT '$field' FROM userinformation WHERE user_id='$strMemberID'";
 		$result = $objConnect->query($sql);
 
 		if ($result->num_rows > 0) {
@@ -17,7 +17,7 @@
 			echo "0 results";
 		}
 			
-		$arr['$field'] = $fieldValue;
+		$arr[$field] = $fieldValue;
 	
 	mysqli_close($objConnect);
 	
