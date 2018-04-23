@@ -5,17 +5,23 @@
 
 	$strMemberID = $_POST["id"];
 	$strScore = $_POST["score"];
+	$intScore = (int)$strScore;
 	
 	/*** Update ***/
-	$strSQL = "UPDATE userinformation SET score='$strScore' WHERE user_id='$strMemberID'";
+	$strSQL = "UPDATE userinformation SET score=score+intScore WHERE user_id='$strMemberID'";
 
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery)
 	{
+		$getScore = mysql_query("SELECT score FROM userinformation WHERE id ='$strMemberID'");
+		while ($row = mysql_fetch_array($getScore)) 
+		{
+			$text = $row['score'];  
+		}
 		$arr['StatusID'] = "0"; 
 		$arr['Error'] = mysqli_error($objConnect);	
 		$arr['id'] = $strMemberID;
-		$arr['score'] = $strScore;
+		$arr['score'] = $text;
 	}
 	else
 	{
