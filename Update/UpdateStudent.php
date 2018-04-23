@@ -8,7 +8,7 @@
 	$intScore = (int)$strScore;
 	
 	/*** Update ***/
-	$strSQL = "UPDATE userinformation SET score=score+intScore WHERE user_id='$strMemberID'";
+	$strSQL = "UPDATE userinformation SET score=score+$intScore WHERE user_id='$strMemberID'";
 
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery)
