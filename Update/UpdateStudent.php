@@ -1,6 +1,6 @@
 <?php
-	$objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp");
-	$objDB = mysqli_select_db("userinformation1");
+	$objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp","userinformation1");
+	//$objDB = mysqli_select_db("userinformation1");
 	
 
 	$strMemberID = $_POST["id"];
