@@ -22,10 +22,13 @@
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
-		$result = mysql_query("SELECT score FROM `userinformation` WHERE `user_id` = '$strMemberID'");
-		$row = mysql_fetch_array($result);
-		
-		$arr['newScore'] = $row["score"];
+		$sql2 = "SELECT score FROM userinformation WHERE id = $strMemberID";
+		$query = mysqli_query($con, $sql2);
+		while ($row = $query->fetch_row()) {
+			$currentScore = (int)$row[0];
+		}
+			
+		$arr['newScore'] = $row["currentscore"];
 	}
 
 	/**
