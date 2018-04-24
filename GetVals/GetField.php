@@ -11,6 +11,7 @@
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			$currentScore = $row['$field'];
+			echo $currentScore;
 		}
 	} else {
 		echo "0 results";
