@@ -21,7 +21,8 @@
 			
 		$arr['newScore'] = $currentScore;
 	} else {
-		echo "nope";
+		$arr['Existence'] = $exists;
+		$arr['field'] = $field;
 	}
 	
 	mysqli_close($objConnect);
