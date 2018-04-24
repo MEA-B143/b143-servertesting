@@ -4,8 +4,8 @@
 	
 	$strMemberID = $_POST["id"];
 	$field = $_POST["field"];
-	$result = mysql_query("SHOW COLUMNS FROM `userinformation` LIKE '$field'");
-	$exists = (mysql_num_rows($result))?TRUE:FALSE;
+	$xd = mysql_query("SHOW COLUMNS FROM `userinformation` LIKE $field");
+	$exists = (mysql_num_rows($xd))?TRUE:FALSE;
 	if($exists) {
 		$sql = "SELECT $field FROM userinformation WHERE user_id='$strMemberID'";
 		$result = $objConnect->query($sql);
