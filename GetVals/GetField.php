@@ -10,8 +10,7 @@
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			$currentScore = $row['$field'];
-			echo $currentScore;
+			$currentScore = $row["$field"];
 		}
 	} else {
 		echo "0 results";
