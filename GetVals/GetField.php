@@ -4,26 +4,19 @@
 	
 	$strMemberID = $_POST["id"];
 	$field = $_POST["field"];
-	$xd = mysqli_query("SHOW COLUMNS FROM userinformation LIKE '$field'");
-	$exists = (mysqli_num_rows($xd))?TRUE:FALSE;
-	if($exists) {
-		$sql = "SELECT '$field' FROM userinformation WHERE user_id='$strMemberID'";
-		$result = $objConnect->query($sql);
+	$sql = "SELECT '$field' FROM userinformation WHERE user_id='$strMemberID'";
+	$result = $objConnect->query($sql);
 
-		if ($result->num_rows > 0) {
-			// output data of each row
-			while($row = $result->fetch_assoc()) {
-				$currentScore = $row[$field];
-			}
-		} else {
-			echo "0 results";
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$currentScore = $row[$field];
 		}
-			
-		$arr['newScore'] = $currentScore;
 	} else {
-		$arr['Existence'] = $exists;
-		$arr['field'] = $field;
+		echo "0 results";
 	}
+		
+	$arr['newScore'] = $currentScore;
 	
 	mysqli_close($objConnect);
 	
