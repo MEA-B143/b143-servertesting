@@ -4,20 +4,20 @@
 	
 	$strMemberID = $_POST["id"];
 	$field = $_POST["field"];
-	$sql = "SELECT ".$field." FROM userinformation WHERE user_id='".$strMemberID."'";
+	$sql = "SELECT ".$field." FROM userinformation WHERE user_id='$strMemberID'";
 	$result = $objConnect->query($sql);
 
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			$fieldvalue = $row['$field'];
+			$fieldvalue = $row[$field];
 		}
 		//$arr['result'] = $result;
 	} else {
 		echo "0 results";
 	}
 		
-	$arr['newScore'] = $currentScore;
+	$arr['$field'] = $currentScore;
 	
 	mysqli_close($objConnect);
 	
