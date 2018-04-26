@@ -4,21 +4,108 @@
 	
 	$strMemberID = $_POST["id"];
 	$field = $_POST["field"];
-	$sql = "SELECT ".$field." FROM userinformation WHERE user_id='$strMemberID'";
-	$result = $objConnect->query($sql);
-
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			$fieldvalue = $row[$field];
-		}
-		//$arr['result'] = $result;
+	if (strpos($field, ',') !== false) {
+		$field = explode(',', $field);
 	} else {
-		echo "0 results";
+		$field = array($field);
 	}
-		
-	$arr['$field'] = $currentScore;
 	
+	foreach($field as &$columnname) {
+		switch ($columnname) {
+			case "score":
+				$sql = "SELECT score FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["score"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['score'] = $currentScore;
+				break;
+			case "groupcode":
+				$sql = "SELECT groupcode FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["groupcode"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['groupcode'] = $currentScore;
+				break;
+			case "customisation":
+				$sql = "SELECT customisation FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["customisation"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['customisation'] = $currentScore;
+				break;
+			case "username":
+				$sql = "SELECT username FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["username"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['username'] = $currentScore;
+				break;
+			case "level":
+				$sql = "SELECT level FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["level"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['level'] = $currentScore;
+				break;
+			case "email":
+				$sql = "SELECT email FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["email"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['email'] = $currentScore;
+				break;
+			default:
+				$arr[$columnname] = "null";
+		}
+	}
 	mysqli_close($objConnect);
 	
 	echo json_encode($arr);
