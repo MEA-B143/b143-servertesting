@@ -12,7 +12,7 @@
 		while($row = $result->fetch_assoc()) {
 			$fieldvalue = $row[];
 		}
-		$arr['result'] = $result;
+		//$arr['result'] = $result;
 	} else {
 		echo "0 results";
 	}
