@@ -24,7 +24,7 @@
 		if(isset($check)) {
 			echo "success,$id";
 		} else {
-			echo "failure";
+			echo "Yo login aint aight :b:";
 		}
 	} else {
 		echo "It's fucked cunt.";
