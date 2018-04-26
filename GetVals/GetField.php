@@ -28,7 +28,7 @@
 				}
 					
 				$arr['score'] = $currentScore;
-				$return = $return + $currentScore + ",";
+				$return .= $currentScore . ",";
 				break;
 			case "groupcode":
 				$sql = "SELECT groupcode FROM userinformation WHERE user_id='$strMemberID'";
@@ -44,7 +44,7 @@
 				}
 					
 				$arr['groupcode'] = $currentScore;
-				$return = $return + $currentScore + ",";
+				$return .= $currentScore . ",";
 				break;
 			case "customisation":
 				$sql = "SELECT customisation FROM userinformation WHERE user_id='$strMemberID'";
@@ -60,7 +60,7 @@
 				}
 					
 				$arr['customisation'] = $currentScore;
-				$return = $return + $currentScore + ",";
+				$return .= $currentScore . ",";
 				break;
 			case "username":
 				$sql = "SELECT username FROM userinformation WHERE user_id='$strMemberID'";
@@ -76,7 +76,7 @@
 				}
 					
 				$arr['username'] = $currentScore;
-				$return = $return + $currentScore + ",";
+				$return .= $currentScore . ",";
 				break;
 			case "level":
 				$sql = "SELECT level FROM userinformation WHERE user_id='$strMemberID'";
@@ -92,7 +92,7 @@
 				}
 					
 				$arr['level'] = $currentScore;
-				$return = $return + $currentScore + ",";
+				$return .= $currentScore . ",";
 				break;
 			case "email":
 				$sql = "SELECT email FROM userinformation WHERE user_id='$strMemberID'";
@@ -108,7 +108,7 @@
 				}
 					
 				$arr['email'] = $currentScore;
-				$return = $return + $currentScore + ",";
+				$return .= $currentScore . ",";
 				break;
 			default:
 				$arr[$columnname] = "null";
