@@ -40,7 +40,7 @@
 						$currentScore = $row["groupcode"];
 					}
 				} else {
-					$currentScore = "null";
+					$currentScore = "fail";
 				}
 					
 				$arr['groupcode'] = $currentScore;
