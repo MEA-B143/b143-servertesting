@@ -3,6 +3,7 @@
 	
 
 	$strMemberID = $_POST["id"];
+	$
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
@@ -35,6 +36,12 @@
 		echo "error";
 	}
 	else {
+		$sql = "INSERT INTO userinformation (daylimit,hourlimit,playerlimit,datecreated) VALUES ('$daylimit','$hourlimit','$playerlimit')";
+		if(mysqli_query($con,$sql)){
+			echo 'successfully registered';
+		} else {
+			echo "Error description: " . mysqli_error($con);
+		}
 		echo $newgroupcode;
 	}
 	mysqli_close($con);
