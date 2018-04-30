@@ -37,14 +37,18 @@
 				if ($result->num_rows > 0) {
 					// output data of each row
 					while($row = $result->fetch_assoc()) {
-						$currentScore = $row["groupcode"];
+						if ($row["groupcode"] === NULL) {
+							$currentGroup = "none";
+						} else {
+							$currentGroup = $row["groupcode"];
+						}
 					}
 				} else {
-					$currentScore = "fail";
+					$currentGroup = "fail";
 				}
 					
-				$arr['groupcode'] = $currentScore;
-				$return .= $currentScore . ",";
+				$arr['groupcode'] = $currentGroup;
+				$return .= $currentGroup . ",";
 				break;
 			case "customisation":
 				$sql = "SELECT customisation FROM userinformation WHERE user_id='$strMemberID'";
