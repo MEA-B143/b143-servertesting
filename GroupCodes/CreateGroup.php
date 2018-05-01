@@ -8,12 +8,12 @@
 	$daylimit = (int)$_POST["daylimit"];
 	$hourlimit = (int)$_POST["hourlimit"];
 	$playerlimit = (int)$_POST["playerlimit"];
-	//$datecreated = date("Y-m-d H:i:s");
+	$datecreated = date("Y-m-d H:i:s");
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
 	if (!result) {
-		//echo "error: " . mysqli_error($con);
+		echo "error: " . mysqli_error($con);
 	} else {
 		//echo "success 1";
 	}
