@@ -20,7 +20,7 @@
 	$exists = true;
 	
 	// Continue generating new group IDs until one is generated that doesn't already exist
-	/*
+	
 	while ($exists == true) {
 		$newgroupcode = rand(10000, 99999);
 		echo $newgroupcode;
@@ -42,7 +42,7 @@
 		}
 	}
 	echo $newgroupcode;
-	
+	/*
 	$strSQL = "UPDATE userinformation SET groupcode=$newgroupcode WHERE user_id='$strMemberID'";
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery) {
