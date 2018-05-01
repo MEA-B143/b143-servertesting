@@ -1,7 +1,7 @@
 <?php
     $objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp","userinformation1");
 	
-	date_default_timezone_set('Europe/Copenhagen');
+	//date_default_timezone_set('Europe/Copenhagen');
 
 	$strMemberID = $_POST["id"];
 	$name = $_POST["name"];
