@@ -13,9 +13,9 @@
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
 	if (!result) {
-		echo "error: " . mysqli_error($con);
+		//echo "error: " . mysqli_error($con);
 	} else {
-		echo "success 1";
+		//echo "success 1";
 	}
 	$exists = true;
 	
@@ -41,8 +41,8 @@
 			$exists = false;
 		}
 	}
-	echo $newgroupcode;
-	/*
+	//echo $newgroupcode;
+	
 	$strSQL = "UPDATE userinformation SET groupcode=$newgroupcode WHERE user_id='$strMemberID'";
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery) {
@@ -56,6 +56,6 @@
 			echo "Error description: " . mysqli_error($con);
 		}
 		echo $newgroupcode;
-	}*/
+	}
 	mysqli_close($con);
 ?>
