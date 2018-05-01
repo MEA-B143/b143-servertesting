@@ -9,7 +9,7 @@
 	$hourlimit = (int)$_POST["hourlimit"];
 	$playerlimit = (int)$_POST["playerlimit"];
 	date_default_timezone_set('Europe/Copenhagen');
-	$date = date('m-d-Y h:i:s');
+	$date = date('Y-m-d H:i:s');
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
@@ -24,7 +24,6 @@
 	
 	while ($exists == true) {
 		$newgroupcode = rand(10000, 99999);
-		echo $newgroupcode;
 		if ($result->num_rows > 0) {
 			// output data of each row
 			$switch = false;
