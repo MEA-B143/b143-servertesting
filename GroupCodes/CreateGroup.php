@@ -12,11 +12,17 @@
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
+	if (!result) {
+		echo "error: " . mysqli_error($con);
+	} else {
+		echo "success 1";
+	}
 	$exists = true;
 	
 	// Continue generating new group IDs until one is generated that doesn't already exist
 	while ($exists == true) {
 		$newgroupcode = rand(10000, 99999);
+		echo $newgroupcode;
 		if ($result->num_rows > 0) {
 			// output data of each row
 			$switch = false;
