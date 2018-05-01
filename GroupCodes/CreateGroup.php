@@ -1,9 +1,14 @@
 <?php
     $objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp","userinformation1");
 	
+	date_default_timezone_set('Europe/Copenhagen');
 
 	$strMemberID = $_POST["id"];
-	$
+	$name = $_POST["name"];
+	$daylimit = (int)$_POST["daylimit"];
+	$hourlimit = (int)$_POST["hourlimit"];
+	$playerlimit = (int)$_POST["playerlimit"];
+	$datecreated = date("Y-m-d H:i:s");
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
@@ -36,7 +41,7 @@
 		echo "error";
 	}
 	else {
-		$sql = "INSERT INTO userinformation (daylimit,hourlimit,playerlimit,datecreated) VALUES ('$daylimit','$hourlimit','$playerlimit')";
+		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit', '$dateCreated','$newgroupcode')";
 		if(mysqli_query($con,$sql)){
 			echo 'successfully registered';
 		} else {
