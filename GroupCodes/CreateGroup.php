@@ -49,11 +49,11 @@
 		echo "error: " . mysqli_error($con);
 	}
 	else {
-		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$dateCreated','$newgroupcode')";
+		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$newgroupcode')";
 		if(mysqli_query($con,$sql)){
 			echo 'successfully registered';
 		} else {
-			echo "Error description: " . mysqli_error($con) . $dateCreated;
+			echo "Error description: " . mysqli_error($con) . $date;
 		}
 		echo $newgroupcode;
 	}
