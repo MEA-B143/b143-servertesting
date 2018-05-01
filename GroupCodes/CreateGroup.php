@@ -8,7 +8,7 @@
 	$daylimit = (int)$_POST["daylimit"];
 	$hourlimit = (int)$_POST["hourlimit"];
 	$playerlimit = (int)$_POST["playerlimit"];
-	$datecreated = date("Y-m-d H:i:s");
+	//$datecreated = date("Y-m-d H:i:s");
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
@@ -20,6 +20,7 @@
 	$exists = true;
 	
 	// Continue generating new group IDs until one is generated that doesn't already exist
+	/*
 	while ($exists == true) {
 		$newgroupcode = rand(10000, 99999);
 		echo $newgroupcode;
@@ -55,6 +56,6 @@
 			echo "Error description: " . mysqli_error($con);
 		}
 		echo $newgroupcode;
-	}
+	}*/
 	mysqli_close($con);
 ?>
