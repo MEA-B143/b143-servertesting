@@ -8,7 +8,8 @@
 	$daylimit = (int)$_POST["daylimit"];
 	$hourlimit = (int)$_POST["hourlimit"];
 	$playerlimit = (int)$_POST["playerlimit"];
-	$datecreated = date("Y-m-d H:i:s");
+	date_default_timezone_set('Europe/Copenhagen');
+	$date = date('m/d/Y h:i:s a');
 	
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
