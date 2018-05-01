@@ -28,13 +28,13 @@
 			// output data of each row
 			$switch = false;
 			while($row = $result->fetch_assoc()) {
-				if ($row["groupcode"] == $newgroupcode) {
+				if ($row["groupcode"] == strval($newgroupcode)) {
 					// Check if the randomly generated group code exists
 					$switch = true;
 					break;
 				}
 			}
-			if (switch == false) {
+			if ($switch == false) {
 				$exists = false;
 			}
 		} else {
