@@ -53,7 +53,7 @@
 		if(mysqli_query($con,$sql)){
 			echo 'successfully registered';
 		} else {
-			echo "Error description: " . mysqli_error($con) . $date;
+			echo "Error description: " . mysqli_error($con) . $date . $name . $daylimit . $hourlimit . $playerlimit . $date;
 		}
 		echo $newgroupcode;
 	}
