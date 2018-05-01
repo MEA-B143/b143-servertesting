@@ -34,11 +34,12 @@
 			$exists = false;
 		}
 	}
+	echo $newgroupcode;
 	
 	$strSQL = "UPDATE userinformation SET groupcode=$newgroupcode WHERE user_id='$strMemberID'";
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery) {
-		echo "error";
+		echo "error: " . mysqli_error($con);
 	}
 	else {
 		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit', '$dateCreated','$newgroupcode')";
