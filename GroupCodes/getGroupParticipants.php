@@ -3,15 +3,15 @@
 	
 	$groupCode = $_POST["groupCode"];
 	
-	$sql = "SELECT username, score FROM userinformation WHERE groupcode='".$groupCode."'";
+	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
 	if(!$objQuery) {
 		$output['groupCode'] = $groupCode; 
 		$output['Error'] = mysqli_error($objConnect);	
 	} else {
-		if ($result->num_rows > 0) {
+		if ($objQuery->num_rows > 0) {
 			// output data of each row
-			while($row = $result->fetch_assoc()) {
+			while($row = $objQuery->fetch_assoc()) {
 				$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
 			}
 		} else{
