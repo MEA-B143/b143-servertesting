@@ -4,15 +4,17 @@
 	$groupCode = $_POST["groupCode"];
 	
 	$sql = "SELECT groupcode FROM userinformation WHERE groupcode = '$groupCode'";
-	$result = $objConnect->query($sql);
-	
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
+	if ($result = $objConnect->query($sql)) {
+		if ($result->num_rows > 0) {
+			// output data of each row
+			while($row = $result->fetch_assoc()) {
+				$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
+			}
+		} else{
+			echo "No Result";
 		}
-	} else{
-		echo "No Result";
+	} else {
+		echo "Error: " . mysqli_error($objConnect);
 	}
 	
 	
