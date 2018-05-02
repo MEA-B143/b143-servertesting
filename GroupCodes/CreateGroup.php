@@ -51,7 +51,7 @@
 	else {
 		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$newgroupcode')";
 		if(mysqli_query($objConnect,$sql)){
-			echo 'successfully registered';
+			echo 'success,';
 		} else {
 			echo "Error description: " . mysqli_error($objConnect) . $date . $name . $daylimit . $hourlimit . $playerlimit . $date;
 		}
