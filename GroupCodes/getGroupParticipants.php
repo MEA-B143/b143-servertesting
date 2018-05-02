@@ -1,7 +1,6 @@
 <?php
     $objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp","userinformation1");
 	
-	$strMemberID = $_POST["id"];
 	$groupCode = $_POST["groupCode"];
 	
 	$sql = "SELECT groupcode FROM userinformation WHERE groupcode = '$groupCode'";
