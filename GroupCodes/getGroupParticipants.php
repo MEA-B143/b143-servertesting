@@ -3,11 +3,11 @@
 	
 	$groupCode = $_POST["groupCode"];
 	
-	$sql = "SELECT username, score FROM userinformation WHERE groupcode = '$groupCode'";
+	$sql = "SELECT username, score FROM userinformation WHERE groupcode='$groupCode'";
 	$objQuery = mysqli_query($objConnect, $sql);
 	if(!$objQuery) {
-		$arr['groupCode'] = $groupCode; 
-		$arr['Error'] = mysqli_error($objConnect);	
+		$output['groupCode'] = $groupCode; 
+		$output['Error'] = mysqli_error($objConnect);	
 	} else {
 		if ($result->num_rows > 0) {
 			// output data of each row
@@ -16,6 +16,8 @@
 			}
 		} else{
 			echo "No Result";
+			$output['groupCode'] = $groupCode;
+			
 		}
 	}
 	
