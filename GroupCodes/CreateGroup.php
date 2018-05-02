@@ -14,7 +14,7 @@
 	$sql = "SELECT groupcode FROM userinformation";
 	$result = $objConnect->query($sql);
 	if (!result) {
-		echo "error: " . mysqli_error($con);
+		echo "error: " . mysqli_error($objConnect);
 	} else {
 		//echo "success 1";
 	}
@@ -46,16 +46,16 @@
 	$strSQL = "UPDATE userinformation SET groupcode=$newgroupcode WHERE user_id='$strMemberID'";
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery) {
-		echo "error: " . mysqli_error($con);
+		echo "error: " . mysqli_error($objConnect);
 	}
 	else {
 		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$newgroupcode')";
-		if(mysqli_query($con,$sql)){
+		if(mysqli_query($objConnect,$sql)){
 			echo 'successfully registered';
 		} else {
-			echo "Error description: " . mysqli_error($con) . $date . $name . $daylimit . $hourlimit . $playerlimit . $date;
+			echo "Error description: " . mysqli_error($objConnect) . $date . $name . $daylimit . $hourlimit . $playerlimit . $date;
 		}
 		echo $newgroupcode;
 	}
-	mysqli_close($con);
+	mysqli_close($objConnect);
 ?>
