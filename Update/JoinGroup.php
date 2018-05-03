@@ -4,8 +4,6 @@
 	
 	$groupCode = $_POST["groupCode"];
 	
-	//$strSQL = "UPDATE groupinfo SET score=score+$intScore WHERE user_id='$strMemberID'";
-	
 	$sql = "SELECT * FROM groupinfo WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
 	
@@ -25,6 +23,9 @@
 		}
 	}
 	
+	//$thirdSQL = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$groupcode')";
+		//We need to set these values in the groupinfo-table
+
 	mysqli_close($objConnect);
 	
 	echo json_encode($output);
