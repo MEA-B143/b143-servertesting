@@ -23,8 +23,8 @@
 			$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 			$plQuery = mysqli_query($objConnect, $plSQL);
 			
-			if(!plQuery){
-				
+			if(!$plQuery){
+				$output["Error"] = mysqli_error($objConnect);
 			} else {
 				$intPlayerAmount = $plQuery->num_rows;
 				
@@ -33,7 +33,7 @@
 	
 					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
 					$objQuery = mysqli_query($objConnect, $strSQL);
-					if(!objQuery))	{
+					if(!$objQuery))	{
 						echo "Failure";
 					} else	{
 						echo "Success";
