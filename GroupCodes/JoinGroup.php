@@ -25,11 +25,12 @@
 			
 			if(!$plQuery){
 				$output["Error"] = mysqli_error($objConnect);
+				echo json_encode($output);
 			} else {
-				
+				/*
 				$intPlayerAmount = $plQuery->num_rows;
 				$output["Error"] = $intPlayerAmount;
-				/*
+				*/
 				if (10 > 2) { 
 					$groupCodeInt = (int)$groupCode;
 	
@@ -41,7 +42,6 @@
 						echo "Success";
 					}
 				}
-				*/
 			}
 			
 			
