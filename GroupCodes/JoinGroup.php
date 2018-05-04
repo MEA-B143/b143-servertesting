@@ -27,11 +27,11 @@
 				$output["Error"] = mysqli_error($objConnect);
 				echo json_encode($output);
 			} else {
-				/*
-				$intPlayerAmount = $plQuery->num_rows;
-				$output["Error"] = $intPlayerAmount;
 				
-				if (10 > 2) { 
+				//$intPlayerAmount = $plQuery->num_rows;
+				//$output["Error"] = $intPlayerAmount;
+				
+				//if (10 > 2) { 
 					$groupCodeInt = (int)$groupCode;
 	
 					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
@@ -41,8 +41,8 @@
 					} else	{
 						echo "Success";
 					}
-				}
-				*/
+				//}
+				
 			}
 			
 			
