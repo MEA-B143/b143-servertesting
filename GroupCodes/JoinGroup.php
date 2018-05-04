@@ -14,9 +14,7 @@
 		if ($objQuery->num_rows > 0) {
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
-				$output[$row["groupcode"]] = $row["datecreated"];
-				
-//= $row["playerlimit"] = $row["hourlimit"] = $row["daylimit"] = $row["name"]				
+				$output[$row["groupcode"]] = $row["datecreated"] = $row["playerlimit"] = $row["hourlimit"] = $row["daylimit"] = $row["name"];				
 			}
 		} else{
 			echo "No Result";
