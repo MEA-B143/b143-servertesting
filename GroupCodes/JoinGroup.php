@@ -28,12 +28,12 @@
 			} else {
 				$intPlayerAmount = $plQuery->num_rows;
 				
-				if ($playerLimit > $intPlayerAmount) { 
+				if (10 > 2) { 
 					$groupCodeInt = (int)$groupCode;
 	
 					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
-					$objQuery = mysqli_query($objConnect, $strSQL);
-					if(!$objQuery))	{
+					$objStrQuery = mysqli_query($objConnect, $strSQL);
+					if(!$objStrQuery))	{
 						echo "Failure";
 					} else	{
 						echo "Success";
