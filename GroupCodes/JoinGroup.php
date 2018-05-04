@@ -14,7 +14,7 @@
 		if ($objQuery->num_rows > 0) {
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
-				$output[$row["groupcode"]] = $row["datecreated"] = $row["playerlimit"] = $row["hourlimit"] = $row["daylimit"] = $row["name"];				
+				$output[$row["groupcode"]] = $row["datecreated"]. "," .$row["playerlimit"]. "," . $row["hourlimit"]. "," .$row["daylimit"]. "," .$row["name"];				
 			}
 		} else{
 			echo "No Result";
@@ -23,7 +23,7 @@
 		}
 	}
 	
-	//$thirdSQL = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$groupcode')";
+	//$thirdSQL = "UPDATE INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$groupcode')";
 		//We need to set these values in the groupinfo-table
 
 	mysqli_close($objConnect);
