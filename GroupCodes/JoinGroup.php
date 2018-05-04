@@ -3,6 +3,7 @@
 	//$objDB = mysqli_select_db("userinformation1");
 	
 	$groupCode = $_POST["groupCode"];
+	$strMemberID = $_POST["id"];
 	
 	$sql = "SELECT * FROM groupinfo WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
@@ -23,8 +24,13 @@
 		}
 	}
 	
-	//$thirdSQL = "UPDATE INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$groupcode')";
-		//We need to set these values in the groupinfo-table
+	$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
+	$objQuery = mysqli_query($objConnect, $strSQL);
+	if(!$objQuery)	{
+		echo $output["Failed to upload to server."];
+	} else	{
+		echo $output["Success"];
+	}
 
 	mysqli_close($objConnect);
 	
