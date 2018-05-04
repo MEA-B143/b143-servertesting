@@ -15,23 +15,37 @@
 		if ($objQuery->num_rows > 0) {
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
-				$output[$row["groupcode"]] = $row["datecreated"]. "," .$row["playerlimit"]. "," . $row["hourlimit"]. "," .$row["daylimit"]. "," .$row["name"];				
+				$output["groupcode"] = $row["groupcode"]. "," .$row["datecreated"]. "," .$row["playerlimit"]. "," . $row["hourlimit"]. "," .$row["daylimit"]. "," .$row["name"];				
+				$playerLimit = $row["playerlimit"];
 			}
+
+			
+			$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
+			$plQuery = mysqli_query($objConnect, $plSQL);
+			
+			if(!plQuery){
+				
+			} else {
+				$intPlayerAmount = $plQuery->num_rows;
+				
+				if ($playerLimit > $intPlayerAmount) { 
+					$groupCodeInt = (int)$groupCode;
+	
+					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
+					$objQuery = mysqli_query($objConnect, $strSQL);
+					if(!objQuery))	{
+						echo "Failure";
+					} else	{
+						echo "Success";
+					}
+				}
+			}
+			
 		} else{
-			echo "No Result";
-			$output['groupCode'] = $groupCode;
-			$output['sql'] = $sql;
+			$output["NoGroupCode"] = "Group code doesn't exist.";
 		}
 	}
 	
-	$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
-	$objQuery = mysqli_query($objConnect, $strSQL);
-	if(!$objQuery)	{
-		echo $output["Failed to upload to server."];
-	} else	{
-		echo $output["Success"];
-	}
-
 	mysqli_close($objConnect);
 	
 	echo json_encode($output);
