@@ -30,7 +30,7 @@
 				/*
 				$intPlayerAmount = $plQuery->num_rows;
 				$output["Error"] = $intPlayerAmount;
-				*/
+				
 				if (10 > 2) { 
 					$groupCodeInt = (int)$groupCode;
 	
@@ -42,6 +42,7 @@
 						echo "Success";
 					}
 				}
+				*/
 			}
 			
 			
