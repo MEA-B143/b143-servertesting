@@ -26,8 +26,9 @@
 			if(!$plQuery){
 				$output["Error"] = mysqli_error($objConnect);
 				echo json_encode($output);
-			} else {
+			} else {	
 				echo "works? or beer?";
+				//works until here
 				
 				/*
 				$intPlayerAmount = $plQuery->num_rows;
