@@ -19,7 +19,7 @@
 				$output["groupcode"] = $row["groupcode"]. "," .$row["datecreated"]. "," .$playerLimit. "," . $row["hourlimit"]. "," .$row["daylimit"]. "," .$row["name"];				
 			}
 
-			/*
+			
 			$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 			$plQuery = mysqli_query($objConnect, $plSQL);
 			
@@ -40,7 +40,7 @@
 					}
 				}
 			}
-			*/
+			
 			
 		} else{
 			$output["NoGroupCode"] = "Group code doesn't exist.";
