@@ -26,7 +26,14 @@
 				$intPlayerAmount = (int)$plQuery->num_rows;
 				
 				if ($playerLimit > $intPlayerAmount) { 
-					updateGroupCode();
+					$groupCodeInt = (int)$groupCode;
+					
+					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
+					if($objStrQuery = mysqli_query($objConnect, $strSQL))	{
+						
+					} else	{
+						$output["Error"] = mysqli_error($objConnect);
+					}
 				} else {
 					$output["TooManyPlayers"] = "Too many people in the group";
 				}
@@ -44,15 +51,3 @@
 
 	echo json_encode($output);
 	mysqli_close($objConnect);
-
-
-	function updateGroupCode() {
-		$groupCodeInt = (int)$groupCode;
-
-		$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
-		if($objStrQuery = mysqli_query($objConnect, $strSQL))	{
-			
-		} else	{
-			$output["Error"] = mysqli_error($objConnect);
-		}
-	}
