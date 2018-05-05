@@ -21,31 +21,26 @@
 
 			
 			$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
-			$plQuery = mysqli_query($objConnect, $plSQL);
 			
-			if(!$plQuery){
-				$output["Error"] = mysqli_error($objConnect);
-				echo json_encode($output);
-			} else {
+			if($plQuery = mysqli_query($objConnect, $plSQL)){
 				echo "works? or beer?";
 				
-				/*
 				$intPlayerAmount = $plQuery->num_rows;
-				$output["Error"] = $intPlayerAmount;
+				//$output["Error"] = $intPlayerAmount;
 				
 				if (10 > 2) { 
 					$groupCodeInt = (int)$groupCode;
 	
 					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
-					$objStrQuery = mysqli_query($objConnect, $strSQL);
-					if(!$objStrQuery))	{
-						echo "Failure";
-					} else	{
+					if($objStrQuery = mysqli_query($objConnect, $strSQL))	{
 						echo "Success";
+					} else	{
+						echo "Failure";
 					}
 				}
-				*/
-				
+			} else {
+				$output["Error"] = mysqli_error($objConnect);
+				echo json_encode($output);
 			}
 			
 			
