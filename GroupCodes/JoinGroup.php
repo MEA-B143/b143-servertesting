@@ -23,7 +23,7 @@
 			$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 			
 			if($plQuery = mysqli_query($objConnect, $plSQL)){
-				echo "works? or beer?";
+				//echo "works? or beer?";
 				
 				$intPlayerAmount = $plQuery->num_rows;
 				//$output["Error"] = $intPlayerAmount;
