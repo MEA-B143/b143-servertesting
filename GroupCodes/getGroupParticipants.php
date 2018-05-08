@@ -3,7 +3,7 @@
 	
 	$id = $_POST["id"];
 	$groupCode = $_POST["groupCode"];
-	$intID = (int)id;
+	$intID = (int)$id;
 	
 	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
