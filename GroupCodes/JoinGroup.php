@@ -21,32 +21,26 @@
 
 			
 			$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
-			$plQuery = mysqli_query($objConnect, $plSQL);
 			
-			if(!$plQuery){
+
+			if($plQuery = mysqli_query($objConnect, $plSQL)){
+				$intPlayerAmount = (int)$plQuery->num_rows;
+				
+				if ($playerLimit > $intPlayerAmount) { 
+					$groupCodeInt = (int)$groupCode;
+					
+					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
+					if($objStrQuery = mysqli_query($objConnect, $strSQL))	{
+						
+					} else	{
+						$output["Error"] = mysqli_error($objConnect);
+					}
+				} else {
+					$output["TooManyPlayers"] = "Too many people in the group";
+				}
+			} else {
 				$output["Error"] = mysqli_error($objConnect);
 				echo json_encode($output);
-			} else {	
-				echo "works? or beer?";
-				//works until here
-				
-				/*
-				$intPlayerAmount = $plQuery->num_rows;
-				$output["Error"] = $intPlayerAmount;
-				
-				if (10 > 2) { 
-					$groupCodeInt = (int)$groupCode;
-	
-					$strSQL = "UPDATE userinformation SET groupcode=$groupCode WHERE user_id='$strMemberID'";
-					$objStrQuery = mysqli_query($objConnect, $strSQL);
-					if(!$objStrQuery))	{
-						echo "Failure";
-					} else	{
-						echo "Success";
-					}
-				}
-				*/
-				
 			}
 			
 			
@@ -54,8 +48,7 @@
 			$output["NoGroupCode"] = "Group code doesn't exist.";
 		}
 	}
-	
+
+
+	echo json_encode($output);
 	mysqli_close($objConnect);
-	
-	//echo json_encode($output);
-	
