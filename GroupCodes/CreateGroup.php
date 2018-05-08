@@ -6,7 +6,6 @@
 	$strMemberID = $_POST["id"];
 	$name = $_POST["name"];
 	$daylimit = (int)$_POST["daylimit"];
-	$hourlimit = (int)$_POST["hourlimit"];
 	$playerlimit = (int)$_POST["playerlimit"];
 	date_default_timezone_set('Europe/Copenhagen');
 	$date = date('Y-m-d H:i:s');
@@ -49,8 +48,8 @@
 		echo "error: " . mysqli_error($objConnect);
 	}
 	else {
-		$sql = "INSERT INTO groupinfo (name,daylimit,hourlimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$newgroupcode')";
-		if(mysqli_query($objConnect,$sql)){
+		$thirdSQL = "INSERT INTO userinformation (name,daylimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$hourlimit','$playerlimit','$date','$newgroupcode')";
+		if(mysqli_query($objConnect,$thirdSQL)){ 
 			echo 'success,';
 		} else {
 			echo "Error description: " . mysqli_error($objConnect) . $date . $name . $daylimit . $hourlimit . $playerlimit . $date;
