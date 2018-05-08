@@ -3,6 +3,7 @@
 	
 	$id = $_POST["id"];
 	$groupCode = $_POST["groupCode"];
+	$intID = (int)id;
 	
 	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
@@ -15,7 +16,7 @@
 			while($row = $objQuery->fetch_assoc()) {
 				$rowID = $row["id"];
 				//if (strncmp(strval($row["id"]), strval($id))) {
-				if ($rowID == $id) {
+				if ($rowID == $intID) {
 					$output["yourscore"] = $row["name"] . "," . $row["score"];
 				} else {
 					$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
