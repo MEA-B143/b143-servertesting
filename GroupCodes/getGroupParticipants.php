@@ -1,6 +1,7 @@
 <?php
     $objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp","userinformation1");
 	
+	$id = $_POST["id"];
 	$groupCode = $_POST["groupCode"];
 	
 	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
@@ -12,7 +13,12 @@
 		if ($objQuery->num_rows > 0) {
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
-				$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
+				//if (strncmp($row["id"], $id)) {
+				if ($row["id"] == $id) {
+					$output["yourscore"] = $row["name"] . "," . $row["score"];
+				} else {
+					$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
+				}
 			}
 		} else{
 			echo "No Result";
