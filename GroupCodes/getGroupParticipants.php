@@ -13,8 +13,8 @@
 		if ($objQuery->num_rows > 0) {
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
-				//if (strncmp($row["id"], $id)) {
-				if ((int)$row["id"] == (int)$id) {
+				if (strncmp(strval($row["id"]), strval($id))) {
+				//if ($row["id"] == $id) {
 					$output["yourscore"] = $row["name"] . "," . $row["score"];
 				} else {
 					$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
