@@ -10,15 +10,16 @@
 
 	$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to Connect');
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$username = $_POST['email'];	
+		$username = $_POST['username'];	
 		$password = $_POST['password'];
-		$sql = "SELECT * FROM userinformation WHERE email='$username' AND password='$password'";
+		$sql = "SELECT * FROM userinformation WHERE username='$username' AND password='$password'";
 		$result = mysqli_query($con,$sql);
 		$check = mysqli_fetch_array($result);
-		$sql2 = "SELECT user_id FROM userinformation WHERE email='$username' AND password='$password'";
+		$sql2 = "SELECT user_id FROM userinformation WHERE username='$username' AND password='$password'";
 		$query = mysqli_query($con, $sql2);
 		while ($row = $query->fetch_row()) {
 			$id = $row[0];
+			$username = $row[1];
 		}
 		
 		if(isset($check)) {
