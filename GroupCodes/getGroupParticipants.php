@@ -19,9 +19,10 @@
 				$rowUsername = $row["username"];
 				//if (strncmp(strval($row["id"]), strval($id))) {
 				if ($rowID == $intID) {
-					$output["yourscore"] = $rowUsername . "," . $rowScore;
+					$output[$rowUsername] = $rowScore;
 				} else {
-					$output[$rowUsername] = $rowScore; //combining usernames and scores of participants to output
+					$output["yourscore"] = $rowUsername . "," . $rowScore;
+					 //combining usernames and scores of participants to output
 				}
 			}
 		} else{
