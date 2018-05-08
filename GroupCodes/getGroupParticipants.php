@@ -15,11 +15,13 @@
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
 				$rowID = $row["id"];
+				$rowScore = $row["score"];
+				$rowUsername = $row["username"];
 				//if (strncmp(strval($row["id"]), strval($id))) {
 				if ($rowID == $intID) {
-					$output["yourscore"] = $row["name"] . "," . $row["score"];
+					$output["yourscore"] = $rowUsername . "," . $rowScore;
 				} else {
-					$output[$row["username"]] = $row["score"]; //combining usernames and scores of participants to output
+					$output[$rowUsername] = $rowScore; //combining usernames and scores of participants to output
 				}
 			}
 		} else{
