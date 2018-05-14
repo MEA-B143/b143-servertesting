@@ -6,7 +6,7 @@
 	$valueNull = NULL;
 	
 
-	$SQL = "UPDATE userinformation SET groupcode='$valueNull', SET score='0' WHERE user_id='$strMemberID'";
+	$SQL = "UPDATE userinformation SET groupcode=NULL, score=0 WHERE user_id='$strMemberID'";
 	$objQuery = mysqli_query($objConnect, $SQL);
 	
 	if($objQuery) {
