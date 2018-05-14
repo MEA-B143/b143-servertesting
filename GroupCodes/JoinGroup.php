@@ -16,7 +16,7 @@
 			// output data of each row
 			while($row = $objQuery->fetch_assoc()) {
 				$playerLimit = $row["playerlimit"];
-				$output["groupcode"] = $row["groupcode"]. "," .$row["datecreated"]. "," .$playerLimit. "," . $row["hourlimit"]. "," .$row["daylimit"]. "," .$row["name"];				
+				$output["groupcode"] = $row["groupcode"]. "," .$row["datecreated"]. "," .$playerLimit. "," .$row["daylimit"]. "," .$row["name"];				
 			}
 
 			
