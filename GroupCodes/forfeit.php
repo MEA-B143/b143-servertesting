@@ -3,7 +3,7 @@
 	
 	$groupCode = $_POST["groupCode"];
 	$strMemberID = $_POST["id"];
-	$valueNull = NULL
+	$valueNull = NULL;
 	
 
 	$SQL = "UPDATE userinformation SET groupcode='$valueNull', SET score=0 WHERE user_id='$strMemberID'";
@@ -18,7 +18,7 @@
 	
 	
 	$plSQL = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
-	$plQuery = mysqli_query($objConnect, $plSQL)
+	$plQuery = mysqli_query($objConnect, $plSQL);
 
 	if($plQuery){
 		$intPlayerAmount = (int)$plQuery->num_rows;
