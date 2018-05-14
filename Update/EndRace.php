@@ -4,8 +4,8 @@
 	$groupcode = $_POST["groupcode"];
 	
 	$sql = "UPDATE groupinfo SET completed=1 WHERE groupcode='$groupcode'";
-	
-	if(!$objQuery = mysqli_query($objConnect, $strSQL))	{
+	$objQuery = mysqli_query($objConnect, $sql)
+	if(!objQuery)	{
 		$arr['StatusID'] = "0"; 
 		$arr['Error'] = mysqli_error($objConnect);	
 		$arr['groupcode'] = $groupcode;
