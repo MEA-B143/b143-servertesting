@@ -1,7 +1,7 @@
 <?php
 	$objConnect = mysqli_connect("den1.mysql5.gear.host","userinformation1","Ox750!N-4Omp","userinformation1") or die('Unable to Connect');
 	
-	$groupCode = $_POST["groupCode"];
+	$groupCode = $_POST["groupcode"];
 	
 	$sql = "SELECT completed FROM groupinfo WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
