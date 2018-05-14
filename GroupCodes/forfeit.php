@@ -30,6 +30,7 @@
 		
 			if($deleteQuery){
 			//If the user is the last player leaving the group, delete the group
+				output["success"] = "success";
 			}
 		}
 	} else {
