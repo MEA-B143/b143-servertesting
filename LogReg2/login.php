@@ -21,7 +21,7 @@
 			$rowArray = $row;
 			$id = $rowArray[0];
 			$username = $rowArray[1];
-			$score = $rowArray[5];
+			$score = $rowArray[4];
 		}
 		
 		if(isset($check)) {
