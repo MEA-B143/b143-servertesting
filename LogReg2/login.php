@@ -18,9 +18,10 @@
 		$sql2 = "SELECT user_id FROM userinformation WHERE username='$username' AND password='$password'";
 		$query = mysqli_query($con, $sql2);
 		while ($row = $query->fetch_row()) {
-			$id = $row[0];
-			$username = $row[1];
-			$score = $row[5];
+			$rowArray = $row;
+			$id = $rowArray[0];
+			$username = $rowArray[1];
+			$score = $rowArray[5];
 		}
 		
 		if(isset($check)) {
