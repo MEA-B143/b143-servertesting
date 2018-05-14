@@ -5,6 +5,10 @@
 	$groupCode = $_POST["groupCode"];
 	//$intID = (int)$id;
 	
+	SELECT *
+		FROM userinformation
+		ORDER BY score DESC;
+	
 	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
 	$objQuery = mysqli_query($objConnect, $sql);
 	if(!$objQuery) {
