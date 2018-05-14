@@ -6,7 +6,7 @@
 	//$intID = (int)$id;
 
 	
-	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."'";
+	$sql = "SELECT * FROM userinformation WHERE groupcode='".$groupCode."' ORDER BY score DESC";
 	$objQuery = mysqli_query($objConnect, $sql);
 	if(!$objQuery) {
 		$output['groupCode'] = $groupCode; 
