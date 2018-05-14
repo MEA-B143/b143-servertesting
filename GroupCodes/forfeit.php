@@ -25,8 +25,8 @@
 		
 		if ($intPlayerAmount == 0) { 
 		
-		$deleteSQL = "DELETE FROM groupinfo WHERE groupcode='$groupCode'";
-		$deleteQuery = mysqli_query($objConnect, $deleteSQL);
+			$deleteSQL = "DELETE FROM groupinfo WHERE groupcode='$groupCode'";
+			$deleteQuery = mysqli_query($objConnect, $deleteSQL);
 		
 			if($deleteQuery){
 			//If the user is the last player leaving the group, delete the group
