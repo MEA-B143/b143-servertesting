@@ -48,7 +48,7 @@
 		echo "error: " . mysqli_error($objConnect);
 	}
 	else {
-		$thirdSQL = "INSERT INTO userinformation (name,daylimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$playerlimit','$date','$newgroupcode')";
+		$thirdSQL = "INSERT INTO groupinfo (name,daylimit,playerlimit,datecreated,groupcode) VALUES ('$name','$daylimit','$playerlimit','$date','$newgroupcode')";
 		if(mysqli_query($objConnect,$thirdSQL)){ 
 			echo 'success,';
 		} else {
