@@ -20,10 +20,11 @@
 		while ($row = $query->fetch_row()) {
 			$id = $row[0];
 			$username = $row[1];
+			$score = $row[5];
 		}
 		
 		if(isset($check)) {
-			echo "success,$id";
+			echo "success,$id,$score";
 		} else {
 			echo "Yo login aint aight :b:";
 		}
