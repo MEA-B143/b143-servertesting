@@ -38,7 +38,6 @@
 	$output['Error'] = mysqli_error($objConnect);
 	}
 	
-	
-	echo json_encode($output);
 	mysqli_close($objConnect);
+	echo json_encode($output);
 ?>
