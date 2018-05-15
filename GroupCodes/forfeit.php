@@ -11,6 +11,7 @@
 	
 	if($objQuery) {
 		//success I guess
+		$output["success"] = 1;
 	} else {
 		$output['id'] = $strMemberID; 
 		$output['Error'] = mysqli_error($objConnect);
@@ -30,6 +31,7 @@
 		
 			if($deleteQuery){
 			//If the user is the last player leaving the group, delete the group
+				$output["success"] = 2;
 			}
 		}
 	} else {
