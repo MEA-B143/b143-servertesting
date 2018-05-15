@@ -3,7 +3,6 @@
 	
 	$groupCode = $_POST["groupCode"];
 	$strMemberID = $_POST["id"];
-	$valueNull = NULL;
 	
 
 	$SQL = "UPDATE userinformation SET groupcode=NULL, score=0 WHERE user_id='$strMemberID'";
