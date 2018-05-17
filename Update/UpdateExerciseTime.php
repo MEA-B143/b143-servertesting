@@ -4,11 +4,11 @@
 	
 
 	$strMemberID = $_POST["id"];
-	$strScore = $_POST["score"];
-	$intScore = (int)$strScore;
+	$strSeconds = $_POST["seconds"];
+	$intSeconds = (int)$strSeconds;
 	
 	/*** Update ***/
-	$strSQL = "UPDATE userinformation SET score=score+$intScore WHERE user_id='$strMemberID'";
+	$strSQL = "UPDATE userinformation SET secondsofexercise=secondsofexercise+$intSeconds WHERE user_id='$strMemberID'";
 
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery)
@@ -22,19 +22,19 @@
 	{
 		$arr['StatusID'] = "1"; 
 		$arr['Error'] = "";	
-		$sql = "SELECT score FROM userinformation WHERE user_id='$strMemberID'";
+		$sql = "SELECT secondsofexercise FROM userinformation WHERE user_id='$strMemberID'";
 		$result = $objConnect->query($sql);
 
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
-				$currentScore = $row["score"];
+				$currentScore = $row["secondsofexercise"];
 			}
 		} else {
 			echo "0 results";
 		}
 			
-		$arr['newScore'] = $currentScore;
+		$arr['secondsofexercise'] = $currentScore;
 	}
 
 	/**
