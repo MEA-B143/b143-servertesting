@@ -8,7 +8,8 @@
 	$intSeconds = (int)$strSeconds;
 	
 	/*** Update ***/
-	$strSQL = "UPDATE userinformation SET secondsofexercise=secondsofexercise+$intSeconds WHERE user_id='$strMemberID'";
+	//$strSQL = "UPDATE userinformation SET secondsofexercise=secondsofexercise+$intSeconds WHERE user_id='$strMemberID'";
+	$strSQL = "UPDATE userinformation SET secondsofexercise=$intSeconds WHERE user_id='$strMemberID'";
 
 	$objQuery = mysqli_query($objConnect, $strSQL);
 	if(!$objQuery)

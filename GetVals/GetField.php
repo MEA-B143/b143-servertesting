@@ -114,6 +114,22 @@
 				$arr['email'] = $currentScore;
 				$return .= $currentScore . ",";
 				break;
+			case "secondsofexercise":
+				$sql = "SELECT secondsofexercise FROM userinformation WHERE user_id='$strMemberID'";
+				$result = $objConnect->query($sql);
+
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while($row = $result->fetch_assoc()) {
+						$currentScore = $row["secondsofexercise"];
+					}
+				} else {
+					$currentScore = "null";
+				}
+					
+				$arr['secondsofexercise'] = $currentScore;
+				$return .= $currentScore . ",";
+				break;
 			default:
 				$arr[$columnname] = "null";
 		}
