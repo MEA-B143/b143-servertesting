@@ -22,10 +22,11 @@
 			$id = $rowArray[0];
 			$username = $rowArray[1];
 			$score = $rowArray[4];
+			$seconds = $rowArray[8];
 		}
 		
 		if(isset($check)) {
-			echo "success,$id,$score";
+			echo "success,$id,$score,$seconds";
 		} else {
 			echo "Yo login aint aight :b:";
 		}
